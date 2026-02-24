@@ -1,0 +1,108 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+
+// Add your projects here. Each entry will render as a card.
+const projects = [
+	{
+		title: 'Project Name',
+		description: 'A brief description of what this project does and why you built it.',
+		tech: ['TypeScript', 'Astro'],
+		repo: 'https://github.com/sequoiap/project-name',
+		demo: '',
+	},
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Projects | ${SITE_TITLE}`} description="Projects I've worked on." />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>Projects</h1>
+			<p>A selection of things I've built.</p>
+			<ul class="projects-grid">
+				{
+					projects.map((project) => (
+						<li class="project-card">
+							<div class="project-header">
+								<h2>{project.title}</h2>
+								<div class="project-links">
+									{project.repo && (
+										<a href={project.repo} target="_blank" rel="noopener noreferrer">
+											GitHub
+										</a>
+									)}
+									{project.demo && (
+										<a href={project.demo} target="_blank" rel="noopener noreferrer">
+											Live Demo
+										</a>
+									)}
+								</div>
+							</div>
+							<p>{project.description}</p>
+							<ul class="tech-list">
+								{project.tech.map((t) => (
+									<li>{t}</li>
+								))}
+							</ul>
+						</li>
+					))
+				}
+			</ul>
+		</main>
+		<Footer />
+	</body>
+</html>
+<style>
+	.projects-grid {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: grid;
+		gap: 1.5rem;
+	}
+	.project-card {
+		border: 1px solid rgb(var(--gray-light));
+		border-radius: 8px;
+		padding: 1.5rem;
+	}
+	.project-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		gap: 1rem;
+		margin-bottom: 0.5rem;
+	}
+	.project-header h2 {
+		margin: 0;
+		font-size: 1.25rem;
+	}
+	.project-links {
+		display: flex;
+		gap: 0.75rem;
+		flex-shrink: 0;
+	}
+	.project-links a {
+		font-size: 0.875rem;
+	}
+	.tech-list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		list-style: none;
+		padding: 0;
+		margin: 0.75rem 0 0;
+	}
+	.tech-list li {
+		background: rgb(var(--gray-light));
+		border-radius: 4px;
+		padding: 0.2rem 0.6rem;
+		font-size: 0.8rem;
+	}
+</style>

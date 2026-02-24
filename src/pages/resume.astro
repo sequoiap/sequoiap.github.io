@@ -1,0 +1,137 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title={`Resume | ${SITE_TITLE}`}
+			description="My professional background and experience."
+		/>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="resume-header">
+				<h1>[Your Name]</h1>
+				<p>[Your title or one-line description]</p>
+				<p class="contact">
+					<a href="mailto:you@example.com">you@example.com</a> &middot;
+					<a href="https://github.com/sequoiap" target="_blank" rel="noopener noreferrer"
+						>github.com/sequoiap</a
+					> &middot;
+					<a href="https://linkedin.com/in/yourhandle" target="_blank" rel="noopener noreferrer"
+						>LinkedIn</a
+					>
+				</p>
+			</div>
+
+			<section>
+				<h2>Experience</h2>
+				<hr />
+				<div class="entry">
+					<div class="entry-header">
+						<strong>Job Title</strong>
+						<span class="entry-date">Month Year &ndash; Present</span>
+					</div>
+					<div class="entry-sub">Company Name &middot; Location</div>
+					<ul>
+						<li>What you accomplished here.</li>
+						<li>Another highlight.</li>
+					</ul>
+				</div>
+			</section>
+
+			<section>
+				<h2>Education</h2>
+				<hr />
+				<div class="entry">
+					<div class="entry-header">
+						<strong>Degree Name</strong>
+						<span class="entry-date">Year</span>
+					</div>
+					<div class="entry-sub">University Name</div>
+				</div>
+			</section>
+
+			<section>
+				<h2>Skills</h2>
+				<hr />
+				<ul class="skills-list">
+					<li>Skill One</li>
+					<li>Skill Two</li>
+					<li>Skill Three</li>
+				</ul>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
+<style>
+	.resume-header {
+		margin-bottom: 2rem;
+		text-align: center;
+	}
+	.resume-header h1 {
+		margin-bottom: 0.25rem;
+	}
+	.resume-header p {
+		margin: 0.25rem 0;
+		color: rgb(var(--gray));
+	}
+	.contact a {
+		color: rgb(var(--gray));
+	}
+	section {
+		margin-bottom: 2rem;
+	}
+	section h2 {
+		font-size: 1rem;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		color: rgb(var(--gray));
+		margin-bottom: 0.25rem;
+	}
+	.entry {
+		margin: 1rem 0 1.5rem;
+	}
+	.entry-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		gap: 1rem;
+	}
+	.entry-date {
+		font-size: 0.875rem;
+		color: rgb(var(--gray));
+		white-space: nowrap;
+	}
+	.entry-sub {
+		font-size: 0.875rem;
+		color: rgb(var(--gray));
+		margin-top: 0.15rem;
+	}
+	.entry ul {
+		margin: 0.5rem 0 0;
+		padding-left: 1.25rem;
+	}
+	.entry li {
+		margin-bottom: 0.25rem;
+	}
+	.skills-list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		padding: 0;
+		list-style: none;
+	}
+	.skills-list li {
+		background: rgb(var(--gray-light));
+		border-radius: 4px;
+		padding: 0.3rem 0.75rem;
+	}
+</style>

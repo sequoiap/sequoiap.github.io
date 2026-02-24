@@ -1,0 +1,77 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>Hi, I'm [Your Name]</h1>
+			<p class="intro">
+				[A sentence or two about yourself — your role, what you work on, or what you're
+				interested in.]
+			</p>
+			<div class="section-links">
+				<a href="/projects" class="card">
+					<h2>Projects</h2>
+					<p>Things I've built.</p>
+				</a>
+				<a href="/resume" class="card">
+					<h2>Resume</h2>
+					<p>My background and experience.</p>
+				</a>
+				<a href="/blog" class="card">
+					<h2>Blog</h2>
+					<p>Thoughts I've written down.</p>
+				</a>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
+<style>
+	main {
+		padding-top: 2em;
+	}
+	.intro {
+		font-size: 1.1em;
+		color: rgb(var(--gray-dark));
+		max-width: 600px;
+	}
+	.section-links {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+		gap: 1.5rem;
+		margin-top: 2rem;
+	}
+	.card {
+		display: block;
+		padding: 1.5rem;
+		border: 1px solid rgb(var(--gray-light));
+		border-radius: 8px;
+		text-decoration: none;
+		color: inherit;
+		transition: box-shadow 0.2s ease, border-color 0.2s ease;
+	}
+	.card:hover {
+		box-shadow: var(--box-shadow);
+		border-color: var(--accent);
+	}
+	.card h2 {
+		font-size: 1.25rem;
+		margin-bottom: 0.25rem;
+		color: var(--accent);
+	}
+	.card p {
+		margin: 0;
+		color: rgb(var(--gray));
+		font-size: 0.9rem;
+	}
+</style>
